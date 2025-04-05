@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dockerfile-REPL</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.39.1/ace.min.js" type="text/javascript" charset="utf-8"></script>
+  <script src="/scripts/main.js" type="text/javascript"></script>
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous"> -->
+</head>
+<body>
+  <div class="nav-bar">
+    <button onclick="run_df()">Run</button>
+    <button onclick="print_df()">Print</button>
+  </div>
+  <div class="sep-div">
+    <hr/>
+    <button onclick="add_block(this.parentNode)">Add</button>
+    <hr/>
+  </div>
+  <div class="sep-div">
+    <button onclick="run_till_me(this)" style="position: absolute;top: 10px;right: 10px;">Run Complete file</button>
+  </div>
+</body>
+</html>
