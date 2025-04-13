@@ -115,7 +115,8 @@ function clear_df() {
 }
 
 function load_df(df_text) {
-  // const df_text = document.getElementById("df-input").value;
+  clear_df()
+
   const lines = df_text.split('\n\n');
   blocks_index = 0
   for (block of lines) {
