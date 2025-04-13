@@ -22,12 +22,12 @@ function add_block(clickedDiv) {
   const newSepDiv = document.createElement('div');
   newSepDiv.classList.add('sep-div');
   newSepDiv.innerHTML = `
-    <button onclick="this.parentNode.previousElementSibling.outerHTML = '';
+    <button class="btn-rem" onclick="this.parentNode.previousElementSibling.outerHTML = '';
                     this.parentNode.outerHTML = ''">Remove</button>
-    <button onclick="run_till_me(this)">Interact</button>
+    <button class="btn-int" onclick="run_till_me(this)">Interact</button>
     <br/>
     <hr/>
-    <button onclick="add_block(this.parentNode)">Add</button>
+    <button class="btn-add" onclick="add_block(this.parentNode)">Add</button>
     <hr/>
   `;
 
@@ -102,4 +102,36 @@ function debug_in_terminal(dockerfile) {
             window.open(`http://${obj['host']}:${obj['port']}`, "_blank", "popup,left=224,top=126,width=800,height=450");
         }
     }
+}
+
+function clear_df() {
+  var code_blocks = document.getElementsByClassName('btn-rem');
+  for (let i = code_blocks.length - 1; i >= 0; i--) {
+    code_blocks[i].parentNode.previousElementSibling.outerHTML = '';
+    code_blocks[i].parentNode.outerHTML = '';
+  }
+
+  editors = []
+}
+
+function load_df(df_text) {
+  // const df_text = document.getElementById("df-input").value;
+  const lines = df_text.split('\n\n');
+  blocks_index = 0
+  for (block of lines) {
+    var code_blocks = document.getElementsByClassName('btn-add');
+    console.log(block);
+    add_block(code_blocks[blocks_index].parentNode);
+    editors[blocks_index].setValue(block, -1);
+    blocks_index ++;
+  }
+
+  document.getElementById("df-input").value = "";
+  document.getElementById('load-dialog').classList.add('hidden');
+}
+
+function copy_to_clipboard_df() {
+  let text = get_df_till_me(document.getElementById('btn-run-complete'))
+  navigator.clipboard.writeText(text)
+  alert("Copied dockerfile to clipboard")
 }
