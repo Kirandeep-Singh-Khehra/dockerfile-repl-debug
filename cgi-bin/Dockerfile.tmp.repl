@@ -1,4 +1,0 @@
-
-
-#Command will fail to trigger interactive debug
-RUN exit 1
