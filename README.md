@@ -12,3 +12,10 @@ Single file bash script to get a REPL like env for Dockerfiles on web.
 1. Get inside directory where you want to build your dockerfile.
 2. Run `drp.sh path/to/Dockerfile`. Dockerfile must also be inside build directory's path (can be in sub directories too).
 
+# Screenshots
+### UI
+<img src="/screenshots/sc-ui.png" alt="Web UI"/>
+
+### Terminal(ttyd)
+<img src="/screenshots/sc-term.png" alt="Terminal View"/>
+
